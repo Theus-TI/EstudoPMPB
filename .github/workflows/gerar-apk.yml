@@ -14,14 +14,11 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: android-actions/setup-android@v3
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.7'
       - name: Extrair projeto original
         run: unzip -q Estudo-PmPB-Android-Studio.zip
-      - name: Instalar SDK 35
-        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
       - name: Compilar APK
         working-directory: Estudo-PmPB-Android
         run: gradle :app:assembleDebug --no-daemon
